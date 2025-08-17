@@ -294,6 +294,7 @@ sap.ui.define([
                     var sMatch = oItem.Psttr.match(/\/Date\((\d+)\)\//);
                     if (sMatch && sMatch[1]) {
                         var oItemDate = new Date(parseInt(sMatch[1]));
+                        // Include records where start date is >= from date (inclusive)
                         if (oItemDate < oFromDate) {
                             bInclude = false;
                         }
@@ -304,6 +305,7 @@ sap.ui.define([
                     var sMatch = oItem.Pedtr.match(/\/Date\((\d+)\)\//);
                     if (sMatch && sMatch[1]) {
                         var oItemDate = new Date(parseInt(sMatch[1]));
+                        // Include records where end date is <= to date (inclusive)
                         if (oItemDate > oToDate) {
                             bInclude = false;
                         }
