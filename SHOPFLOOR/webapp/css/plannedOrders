@@ -1,0 +1,56 @@
+/* ========================
+   Common Page Styling
+=========================== */
+.planned-page {
+  padding: 2rem;
+  background: linear-gradient(to right, #f0f4f8, #e0f7fa);
+}
+
+/* Page Title */
+.page-title {
+  color: #2e7d32 !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  width: 100%;
+  display: block;
+}
+
+/* ========================
+   Filter Bar Right Aligned
+=========================== */
+.filter-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-bar .sapMLabel,
+.filter-bar .sapMInputBase,
+.filter-bar .sapMSlt,
+.filter-bar .sapMBtn {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ========================
+   Table Styling
+=========================== */
+.customTableHeader .sapMListTblHeaderCell,
+.customPlannedTable .sapMListTblHeaderCell,
+.customProductionTable .sapMListTblHeaderCell {
+  background-color: #c8e6c9 !important;
+  color: #1b5e20 !important;
+  font-weight: bold !important;
+  text-align: center;
+  border-bottom: 2px solid #81c784;
+}
+
+.sapMListItems > .sapMLIB:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.sapMListItems > .sapMLIB:nth-child(even) {
+  background-color: #f1f8e9;
+}

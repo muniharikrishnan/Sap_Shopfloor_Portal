@@ -1,0 +1,45 @@
+{
+  "name": "shopfloor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "ui5 serve --port 8081 --open",
+    "build": "ui5 build --clean-dest",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@ui5/cli": "^4.0.23",
+    "ui5-middleware-livereload": "^3.1.2",
+    "ui5-middleware-simpleproxy": "^3.4.3"
+  },
+  "dependencies": {
+    "agent-base": "^7.1.4",
+    "balanced-match": "^1.0.2",
+    "brace-expansion": "^2.0.2",
+    "braces": "^3.0.3",
+    "debug": "^4.4.1",
+    "eventemitter3": "^4.0.7",
+    "fill-range": "^7.1.1",
+    "follow-redirects": "^1.15.11",
+    "http-proxy": "^1.18.1",
+    "http-proxy-agent": "^7.0.2",
+    "https-proxy-agent": "^7.0.6",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "is-number": "^7.0.0",
+    "is-plain-obj": "^3.0.0",
+    "micromatch": "^4.0.8",
+    "minimatch": "^7.4.6",
+    "ms": "^2.1.3",
+    "picomatch": "^2.3.1",
+    "proxy-from-env": "^1.1.0",
+    "requires-port": "^1.0.0",
+    "to-regex-range": "^5.0.1",
+    "ui5-utils-express": "^1.4.0",
+    "undici-types": "^7.10.0"
+  },
+  "description": ""
+}

@@ -1,0 +1,81 @@
+/* ========================
+   Production Orders Styling
+=========================== */
+
+/* Table Styling */
+.sapUiTable {
+    font-family: '72', '72full', Arial, Helvetica, sans-serif;
+}
+
+.sapUiTableCol {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.sapUiTableColHdr {
+    background-color: #2e7d32;
+    color: white;
+    font-weight: bold;
+}
+
+/* Search Bar Styling */
+.sapMToolbar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.5rem;
+}
+
+.sapMSearchField {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.sapMDatePicker {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.sapMInput {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* Button Styling */
+.sapMBtn {
+    border-radius: 4px;
+}
+
+.sapMBtnEmphasized {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+}
+
+/* Page Styling */
+.sapMPage {
+    background-color: #ffffff;
+}
+
+.sapMPageHeader {
+    background-color: #2e7d32;
+    color: white;
+}
+
+/* Footer Styling */
+.sapMPageFooter {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sapMToolbar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .sapMSearchField,
+    .sapMDatePicker,
+    .sapMInput {
+        width: 100% !important;
+    }
+}

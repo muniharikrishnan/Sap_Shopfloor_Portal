@@ -1,0 +1,76 @@
+<mvc:View
+  controllerName="SHOPFLOOR.controller.PlannedOrders"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  displayBlock="true">
+
+  <Page class="planned-page">
+    <customHeader>
+      <Bar>
+        <contentLeft>
+          <Button text="Back to Dashboard" icon="sap-icon://nav-back" press="onNavBack" />
+        </contentLeft>
+        <contentMiddle>
+          <Title text="Planned Orders" level="H1" class="page-title" />
+        </contentMiddle>
+        <contentRight>
+          <HBox alignItems="Center" class="filter-bar">
+            <Label text="Start Date:" />
+            <DatePicker id="startDate" width="150px" placeholder="Select Start Date" />
+            <Label text="End Date:" />
+            <DatePicker id="endDate" width="150px" placeholder="Select End Date" />
+            <Button text="Filter" icon="sap-icon://filter" press="onDateFilter" />
+            <Button text="Clear" type="Transparent" press="onClearFilter" />
+          </HBox>
+        </contentRight>
+      </Bar>
+    </customHeader>
+
+    <content>
+      <Table
+        id="plannedOrdersTable"
+        items="{PlannedOrders>/}"
+        sticky="ColumnHeaders"
+        class="customPlannedTable"
+        growing="true"
+        growingScrollToLoad="true">
+
+        <columns>
+          <Column><Text text="Planned Order" /></Column>
+          <Column><Text text="Material" /></Column>
+          <Column><Text text="Plant" /></Column>
+          <Column><Text text="Production Plant" /></Column>
+          <Column><Text text="Order Quantity" /></Column>
+          <Column><Text text="Available Quantity" /></Column>
+          <Column><Text text="Start Date" /></Column>
+          <Column><Text text="End Date" /></Column>
+          <Column><Text text="Requirement Date" /></Column>
+          <Column><Text text="Planner Group" /></Column>
+          <Column><Text text="Order Type" /></Column>
+          <Column><Text text="Procurement Type" /></Column>
+          <Column><Text text="Unit of Measure" /></Column>
+        </columns>
+
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text text="{PlannedOrders>Plnum}" />
+              <Text text="{PlannedOrders>Matnr}" />
+              <Text text="{PlannedOrders>Plwrk}" />
+              <Text text="{PlannedOrders>Pwwrk}" />
+              <Text text="{PlannedOrders>Gsmng}" />
+              <Text text="{PlannedOrders>Avmng}" />
+              <Text text="{path: 'PlannedOrders>Psttr', formatter: '.formatDate'}" />
+              <Text text="{path: 'PlannedOrders>Pedtr', formatter: '.formatDate'}" />
+              <Text text="{path: 'PlannedOrders>Pertr', formatter: '.formatDate'}" />
+              <Text text="{PlannedOrders>Dispo}" />
+              <Text text="{PlannedOrders>Paart}" />
+              <Text text="{PlannedOrders>Beskz}" />
+              <Text text="{PlannedOrders>Meins}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+  </Page>
+</mvc:View>

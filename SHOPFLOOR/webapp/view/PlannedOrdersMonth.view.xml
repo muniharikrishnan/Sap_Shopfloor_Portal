@@ -1,0 +1,150 @@
+<mvc:View
+  controllerName="SHOPFLOOR.controller.PlannedOrdersMonth"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:f="sap.f"
+  xmlns:ui="sap.ui.table"
+  displayBlock="true">
+
+  <Page title="Month-wise Planned Orders" showNavButton="true" navButtonPress="onNavBack">
+    
+    <!-- Search Bar -->
+    <subHeader>
+      <Toolbar>
+        <SearchField
+          id="searchField"
+          width="20%"
+          placeholder="Search by Month (e.g., May 2025)"
+          search="onSearch"
+          liveChange="onSearchLiveChange" />
+        <ToolbarSpacer />
+        <DatePicker
+          id="fromDatePicker"
+          placeholder="From Date"
+          change="onDateRangeChange"
+          displayFormat="MM/dd/yyyy" />
+        <Label text="To:" />
+        <DatePicker
+          id="toDatePicker"
+          placeholder="To Date"
+          change="onDateRangeChange"
+          displayFormat="MM/dd/yyyy" />
+        <ToolbarSpacer />
+        <Input
+          id="documentNumberInput"
+          placeholder="Document Number"
+          width="15%"
+          change="onDocumentNumberChange" />
+        <Button text="Clear Filters" press="onClearFilters" type="Emphasized" />
+      </Toolbar>
+    </subHeader>
+
+    <!-- Data Table -->
+    <content>
+             <ui:Table
+         id="plannedOrdersTable"
+         rows="{viewModel>/data}"
+         selectionMode="None"
+         visibleRowCount="20"
+         enableBusyIndicator="true"
+         class="sapUiSizeCompact">
+        
+        <ui:columns>
+          <ui:Column sortProperty="Plnum" filterProperty="Plnum">
+            <Label text="Plan Number" />
+                         <ui:template>
+               <Text text="{viewModel>Plnum}" />
+             </ui:template>
+          </ui:Column>
+          
+          <ui:Column sortProperty="Matnr" filterProperty="Matnr">
+            <Label text="Material" />
+            <ui:template>
+                             <Text text="{viewModel>Matnr}" />
+             </ui:template>
+           </ui:Column>
+           
+           <ui:Column sortProperty="Plwrk" filterProperty="Plwrk">
+             <Label text="Plant" />
+             <ui:template>
+               <Text text="{viewModel>Plwrk}" />
+             </ui:template>
+           </ui:Column>
+           
+           <ui:Column sortProperty="Gsmng" filterProperty="Gsmng">
+             <Label text="Total Quantity" />
+             <ui:template>
+               <Text text="{viewModel>Gsmng}" />
+             </ui:template>
+           </ui:Column>
+           
+           <ui:Column sortProperty="Avmng" filterProperty="Avmng">
+             <Label text="Available Quantity" />
+             <ui:template>
+               <Text text="{viewModel>Avmng}" />
+             </ui:template>
+           </ui:Column>
+           
+           <ui:Column sortProperty="Psttr" filterProperty="Psttr">
+             <Label text="Start Date" />
+             <ui:template>
+               <Text text="{viewModel>PsttrFormatted}" />
+             </ui:template>
+           </ui:Column>
+           
+           <ui:Column sortProperty="Pedtr" filterProperty="Pedtr">
+             <Label text="End Date" />
+             <ui:template>
+               <Text text="{viewModel>PedtrFormatted}" />
+             </ui:template>
+           </ui:Column>
+           
+           <ui:Column sortProperty="Pertr" filterProperty="Pertr">
+             <Label text="Transaction Date" />
+             <ui:template>
+               <Text text="{viewModel>PertrFormatted}" />
+             </ui:template>
+           </ui:Column>
+           
+           <ui:Column sortProperty="Monthyr" filterProperty="Monthyr">
+             <Label text="Month-Year" />
+             <ui:template>
+               <Text text="{viewModel>MonthyrFormatted}" />
+             </ui:template>
+           </ui:Column>
+           
+           <ui:Column sortProperty="Dispo" filterProperty="Dispo">
+             <Label text="Dispatcher" />
+             <ui:template>
+               <Text text="{viewModel>Dispo}" />
+             </ui:template>
+           </ui:Column>
+           
+           <ui:Column sortProperty="Paart" filterProperty="Paart">
+             <Label text="Order Type" />
+             <ui:template>
+               <Text text="{viewModel>Paart}" />
+             </ui:template>
+           </ui:Column>
+           
+           <ui:Column sortProperty="Meins" filterProperty="Meins">
+             <Label text="Unit" />
+             <ui:template>
+               <Text text="{viewModel>Meins}" />
+             </ui:template>
+           </ui:Column>
+        </ui:columns>
+      </ui:Table>
+    </content>
+    
+    <!-- Footer with Refresh Button -->
+    <footer>
+      <Toolbar>
+        <ToolbarSpacer />
+        <Button text="Refresh Data" press="onRefreshData" type="Emphasized" icon="sap-icon://refresh" />
+        <Text text="Total Records: {= ${viewModel>/data}.length}" />
+      </Toolbar>
+    </footer>
+  </Page>
+</mvc:View>

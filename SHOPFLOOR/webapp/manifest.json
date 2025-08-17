@@ -1,0 +1,174 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "SHOPFLOOR",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "dataSources": {
+              "Z48_PP_PORTAL_SRV": {
+          "uri": "/sap/opu/odata/SAP/Z48_PP_PORTAL_SRV/",
+          "type": "OData",
+          "settings": {
+            "odataVersion": "2.0"
+          }
+        },
+        "Z48_PP_PORTAL2_SRV": {
+          "uri": "/sap/opu/odata/SAP/Z48_PP_PORTAL2_SRV/",
+          "type": "OData",
+          "settings": {
+            "odataVersion": "2.0"
+          }
+        }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "SHOPFLOOR.view.App",
+      "type": "XML",
+      "id": "app"
+    },
+    "dependencies": {
+      "minUI5Version": "1.71",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "models": {
+      "plannedOrdersMonth": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "dataSource": "Z48_PP_PORTAL_SRV"
+      },
+      "plannedOrdersYear": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "dataSource": "Z48_PP_PORTAL_SRV"
+      },
+      "productionOrdersMonth": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "dataSource": "Z48_PP_PORTAL2_SRV"
+      },
+      "productionOrdersYear": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "dataSource": "Z48_PP_PORTAL2_SRV"
+      },
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "SHOPFLOOR.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/Login.css"
+        },
+        {
+          "uri": "css/dashboard.css"
+        },
+        {
+          "uri": "css/plannedOrders.css"
+        },
+        {
+          "uri": "css/productionOrders.css"
+        }
+      ],
+      "js": [
+        {
+          "uri": "model/formatter.js"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "SHOPFLOOR.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "Login",
+          "target": "Login"
+        },
+        {
+          "pattern": "Dashboard",
+          "name": "Dashboard",
+          "target": "Dashboard"
+        },
+        {
+          "pattern": "PlannedOrders",
+          "name": "PlannedOrders",
+          "target": "PlannedOrders"
+        },
+        {
+          "pattern": "ProductionOrders",
+          "name": "ProductionOrders",
+          "target": "ProductionOrders"
+        },
+        {
+          "pattern": "PlannedOrdersMonth",
+          "name": "PlannedOrdersMonth",
+          "target": "PlannedOrdersMonth"
+        },
+        {
+          "pattern": "PlannedOrdersYear",
+          "name": "PlannedOrdersYear",
+          "target": "PlannedOrdersYear"
+        },
+        {
+          "pattern": "ProductionOrdersMonth",
+          "name": "ProductionOrdersMonth",
+          "target": "ProductionOrdersMonth"
+        },
+        {
+          "pattern": "ProductionOrdersYear",
+          "name": "ProductionOrdersYear",
+          "target": "ProductionOrdersYear"
+        }
+      ],
+      "targets": {
+        "Login": {
+          "viewName": "Login"
+        },
+        "Dashboard": {
+          "viewName": "Dashboard"
+        },
+        "PlannedOrders": {
+          "viewName": "PlannedOrders"
+        },
+        "ProductionOrders": {
+          "viewName": "ProductionOrders"
+        },
+        "PlannedOrdersMonth": {
+          "viewName": "PlannedOrdersMonth"
+        },
+        "PlannedOrdersYear": {
+          "viewName": "PlannedOrdersYear"
+        },
+        "ProductionOrdersMonth": {
+          "viewName": "ProductionOrdersMonth"
+        },
+        "ProductionOrdersYear": {
+          "viewName": "ProductionOrdersYear"
+        }
+      }
+    }
+  }
+}

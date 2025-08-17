@@ -1,0 +1,79 @@
+/* Apply image background to wrapper */
+.backgroundWrapper {
+  height: 100vh;
+  background-image: url("../images/loginbg.png"); /* mapped path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Main layout inside image */
+.fullPageLayout {
+  height: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+/* Top blue header */
+.topBar {
+  background-color: #0b5394 !important;
+  height: 60px !important;
+}
+
+.topBar .sapMText {
+  color: white !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
+}
+
+/* Center login tile */
+.centerArea {
+  flex: 1;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Green login box */
+.loginBox {
+  background-color: #4CAF50 !important;
+  padding: 2.5rem !important;
+  border-radius: 16px !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2) !important;
+  min-width: 350px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1rem;
+}
+
+.loginBox .sapMInputBaseInner {
+  background-color: white !important;
+  color: black !important;
+}
+
+/* Login button */
+.greenLoginButton {
+  background-color: white !important;
+  color: #4CAF50 !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  border-radius: 4px !important;
+}
+
+/* Bottom green footer */
+.bottomBar {
+  background-color: #4CAF50 !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.footerText {
+  color: white !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  padding: 0 1rem !important;
+}

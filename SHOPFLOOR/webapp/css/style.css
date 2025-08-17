@@ -1,0 +1,31 @@
+/* Gradient background for production orders page */
+.planned-page {
+  padding: 2rem;
+  background: linear-gradient(to right, #f0f4f8, #e0f7fa);
+}
+
+/* Table header - sticky & styled */
+.customPlannedTable .sapMListTblHeaderCell {
+  background-color: #0070b1 !important; /* Blue header */
+  font-weight: bold;
+  color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Table content - green background */
+.customPlannedTable .sapMListTblCell {
+  background-color: #e6f4e8 !important; /* Green content */
+}
+
+/* Optional: Spacing for filter toolbar (if you add it later) */
+.filter-bar .sapMLabel,
+.filter-bar .sapMInputBase,
+.filter-bar .sapMSlt {
+  margin-right: 1rem;
+}
+
+/* Center the title in the header */
+.sapMBar .sapMBarMiddle .sapMBarPH {
+  justify-content: center;
+  width: 100%;
+}

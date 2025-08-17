@@ -1,0 +1,112 @@
+/* ========================
+   General Page Styling
+=========================== */
+.dashboardPage {
+  background-color: #ffffff;
+  height: 100vh;
+}
+
+.dashboardWrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================
+   Header Styling
+=========================== */
+.dashboardHeader {
+  background-color: #0b5394;
+  padding: 0.75rem 1rem;
+}
+
+.dashboardTitle {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.userInfo {
+  color: #e3f2fd;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.logoutButton {
+  background-color: white !important;
+  color: #0b5394 !important;
+  font-weight: bold;
+}
+
+/* ========================
+   Tile Section Styling
+=========================== */
+.tileContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tileRow {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ========================
+   Tile Box Styling
+=========================== */
+.tileBox {
+  background-color: #e8f5e9 !important;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 250px !important;
+  height: 200px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* ========================
+   Tile Inner Content
+=========================== */
+.tileInnerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -0.5rem;
+}
+
+/* ========================
+   Icon Styling
+=========================== */
+.tileIcon {
+  font-size: 2.5rem;
+  color: #2e7d32;
+  margin-bottom: 0.3rem;
+}
+
+/* ========================
+   Title and Subtext
+=========================== */
+.tileTitle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-top: 0.4rem;
+}
+
+.tileSubText {
+  font-size: 12px;
+  color: #444;
+  margin-top: 0.3rem;
+  padding: 0 0.5rem;
+  text-align: center;
+}
