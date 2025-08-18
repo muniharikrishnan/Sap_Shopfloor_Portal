@@ -40,7 +40,6 @@
             <GenericTile press="onPlannedOrdersMonthPress" class="dashboardTile plannedOrdersMonthTile" size="M" frameType="TwoByOne">
               <TileContent>
                 <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
-                  <core:Icon src="sap-icon://calendar" size="3rem" color="#1976d2" class="tileIcon" />
                   <Text text="Month-wise Planned Orders" textAlign="Center" class="tileTitle" />
                   <Text text="View monthly planned order activities and schedules" textAlign="Center" wrapping="true" class="tileSubText" />
                   <Text text="Click to access" textAlign="Center" class="tileAction" />
@@ -52,7 +51,6 @@
             <GenericTile press="onPlannedOrdersYearPress" class="dashboardTile plannedOrdersYearTile" size="M" frameType="TwoByOne">
               <TileContent>
                 <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
-                  <core:Icon src="sap-icon://calendar-2" size="3rem" color="#1976d2" class="tileIcon" />
                   <Text text="Year-wise Planned Orders" textAlign="Center" class="tileTitle" />
                   <Text text="View yearly planned order overview and trends" textAlign="Center" wrapping="true" class="tileSubText" />
                   <Text text="Click to access" textAlign="Center" class="tileAction" />
@@ -67,7 +65,6 @@
             <GenericTile press="onProductionOrdersMonthPress" class="dashboardTile productionOrdersMonthTile" size="M" frameType="TwoByOne">
               <TileContent>
                 <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
-                  <core:Icon src="sap-icon://workflow-tasks" size="3rem" color="#388e3c" class="tileIcon" />
                   <Text text="Month-wise Production Orders" textAlign="Center" class="tileTitle" />
                   <Text text="Monitor monthly production order status and progress" textAlign="Center" wrapping="true" class="tileSubText" />
                   <Text text="Click to access" textAlign="Center" class="tileAction" />
@@ -79,7 +76,6 @@
             <GenericTile press="onProductionOrdersYearPress" class="dashboardTile productionOrdersYearTile" size="M" frameType="TwoByOne">
               <TileContent>
                 <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
-                  <core:Icon src="sap-icon://workflow-tasks" size="3rem" color="#388e3c" class="tileIcon" />
                   <Text text="Year-wise Production Orders" textAlign="Center" class="tileTitle" />
                   <Text text="Track yearly production order performance and analytics" textAlign="Center" wrapping="true" class="tileSubText" />
                   <Text text="Click to access" textAlign="Center" class="tileAction" />

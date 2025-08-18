@@ -36,7 +36,7 @@
           placeholder="Document Number"
           width="15%"
           change="onDocumentNumberChange" />
-        <Button text="Clear Filters" press="onClearFilters" type="Emphasized" />
+        <Button text="Clear Filters" press="onClearFilters" />
       </Toolbar>
     </subHeader>
 
@@ -142,7 +142,7 @@
     <footer>
       <Toolbar>
         <ToolbarSpacer />
-        <Button text="Refresh Data" press="onRefreshData" type="Emphasized" icon="sap-icon://refresh" />
+        <Button text="Refresh Data" press="onRefreshData" icon="sap-icon://refresh" />
         <Text text="Total Records: {= ${viewModel>/data}.length}" />
       </Toolbar>
     </footer>

@@ -59,7 +59,6 @@
                                     text="Sign In" 
                                     press="onLoginPress" 
                                     class="loginButton"
-                                    type="Emphasized"
                                     width="100%" />
 
                                 <!-- Status Text -->
