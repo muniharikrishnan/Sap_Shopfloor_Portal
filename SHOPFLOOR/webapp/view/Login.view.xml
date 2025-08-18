@@ -1,15 +1,78 @@
 <mvc:View controllerName="SHOPFLOOR.controller.Login"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f">
 
-    <Page showHeader="false">
+    <Page showHeader="false" class="loginPage">
+        <!-- Background with overlay -->
         <content>
-            <VBox alignItems="Center" justifyContent="Center" height="100%">
-                <Text text="Login" />
-                <Input id="usernameInput" placeholder="Username" />
-                <Input id="passwordInput" placeholder="Password" type="Password" />
-                <Button id="loginButton" text="Login" press="onLoginPress" />
-                <Text id="statusText" text="" visible="false" />
+            <VBox class="loginBackground">
+                <!-- Top header with logo -->
+                <HBox class="loginHeader" alignItems="Center" justifyContent="Center">
+                    <VBox alignItems="Center" class="logoSection">
+                        <core:Icon src="sap-icon://factory" size="3rem" color="#ffffff" class="logoIcon" />
+                        <Text text="SAP Shopfloor Portal" class="appTitle" />
+                        <Text text="Production Management System" class="appSubtitle" />
+                    </VBox>
+                </HBox>
+
+                <!-- Center login form -->
+                <VBox class="loginFormContainer" alignItems="Center" justifyContent="Center">
+                    <f:DynamicPage class="loginCard">
+                        <f:header>
+                            <f:DynamicPageHeader pinnable="false">
+                                <VBox alignItems="Center" class="loginCardHeader">
+                                    <core:Icon src="sap-icon://user" size="2.5rem" color="#0b5394" class="loginIcon" />
+                                    <Text text="Welcome Back" class="loginWelcomeText" />
+                                    <Text text="Please sign in to continue" class="loginSubText" />
+                                </VBox>
+                            </f:DynamicPageHeader>
+                        </f:header>
+                        
+                        <f:content>
+                            <VBox class="loginForm" alignItems="Center" gap="1.5rem">
+                                <!-- Username Input -->
+                                <VBox class="inputGroup" alignItems="Start">
+                                    <Label text="Username" class="inputLabel" />
+                                    <Input 
+                                        id="usernameInput" 
+                                        placeholder="Enter your username" 
+                                        class="loginInput"
+                                        showClearButton="true" />
+                                </VBox>
+
+                                <!-- Password Input -->
+                                <VBox class="inputGroup" alignItems="Start">
+                                    <Label text="Password" class="inputLabel" />
+                                    <Input 
+                                        id="passwordInput" 
+                                        placeholder="Enter your password" 
+                                        type="Password" 
+                                        class="loginInput"
+                                        showClearButton="true" />
+                                </VBox>
+
+                                <!-- Login Button -->
+                                <Button 
+                                    id="loginButton" 
+                                    text="Sign In" 
+                                    press="onLoginPress" 
+                                    class="loginButton"
+                                    type="Emphasized"
+                                    width="100%" />
+
+                                <!-- Status Text -->
+                                <Text id="statusText" text="" visible="false" class="statusText" />
+                            </VBox>
+                        </f:content>
+                    </f:DynamicPage>
+                </VBox>
+
+                <!-- Bottom footer -->
+                <HBox class="loginFooter" alignItems="Center" justifyContent="Center">
+                    <Text text="© 2025 SAP Shopfloor Portal. All rights reserved." class="footerText" />
+                </HBox>
             </VBox>
         </content>
     </Page>

@@ -3,73 +3,91 @@
   xmlns:mvc="sap.ui.core.mvc"
   xmlns="sap.m"
   xmlns:core="sap.ui.core"
+  xmlns:f="sap.f"
+  xmlns:ui="sap.ui.layout"
   displayBlock="true">
 
   <Page showHeader="false" class="dashboardPage">
     <VBox class="dashboardWrapper">
 
-      <!-- Top Blue Header -->
+      <!-- Enhanced Top Header -->
       <HBox class="dashboardHeader" alignItems="Center" justifyContent="SpaceBetween">
-        <VBox>
-          <Text text="Dashboard" class="dashboardTitle" />
+        <VBox class="headerLeft">
+          <HBox alignItems="Center" class="titleSection">
+            <core:Icon src="sap-icon://factory" size="2.5rem" color="#ffffff" class="headerIcon" />
+            <VBox class="titleTexts">
+              <Text text="SAP Shopfloor Portal" class="dashboardTitle" />
+              <Text text="Production Management Dashboard" class="dashboardSubtitle" />
+            </VBox>
+          </HBox>
           <Text text="Welcome, Plant: {/plant}" class="userInfo" />
         </VBox>
-        <Button text="Logout" press="onLogoutPress" class="logoutButton" type="Emphasized" icon="sap-icon://log" />
+        <Button 
+          text="Logout" 
+          press="onLogoutPress" 
+          class="logoutButton" 
+          type="Emphasized" 
+          icon="sap-icon://log" />
       </HBox>
 
-      <!-- Tile Section -->
+      <!-- Enhanced Tile Section -->
       <VBox class="tileContainer" alignItems="Center" justifyContent="Center">
-        <HBox class="tileRow" alignItems="Center" justifyContent="Center">
+        <VBox class="tileGrid" alignItems="Center" justifyContent="Center">
+          
+          <!-- First Row -->
+          <HBox class="tileRow" alignItems="Center" justifyContent="Center">
+            <!-- Month-wise Planned Orders Tile -->
+            <GenericTile press="onPlannedOrdersMonthPress" class="dashboardTile plannedOrdersMonthTile" size="M" frameType="TwoByOne">
+              <TileContent>
+                <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
+                  <core:Icon src="sap-icon://calendar" size="3rem" color="#1976d2" class="tileIcon" />
+                  <Text text="Month-wise Planned Orders" textAlign="Center" class="tileTitle" />
+                  <Text text="View monthly planned order activities and schedules" textAlign="Center" wrapping="true" class="tileSubText" />
+                  <Text text="Click to access" textAlign="Center" class="tileAction" />
+                </VBox>
+              </TileContent>
+            </GenericTile>
 
-          <!-- Month-wise Planned Orders Tile -->
-          <GenericTile press="onPlannedOrdersMonthPress" class="tileBox" size="M" frameType="TwoByOne">
-            <TileContent>
-              <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
-                <core:Icon src="sap-icon://calendar" size="2.5rem" color="blue" class="tileIcon" />
-                <Text text="Month-wise Planned Orders" textAlign="Center" class="tileTitle" />
-                <Text text="View monthly activities" textAlign="Center" wrapping="true" class="tileSubText" />
-              </VBox>
-            </TileContent>
-          </GenericTile>
+            <!-- Year-wise Planned Orders Tile -->
+            <GenericTile press="onPlannedOrdersYearPress" class="dashboardTile plannedOrdersYearTile" size="M" frameType="TwoByOne">
+              <TileContent>
+                <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
+                  <core:Icon src="sap-icon://calendar-2" size="3rem" color="#1976d2" class="tileIcon" />
+                  <Text text="Year-wise Planned Orders" textAlign="Center" class="tileTitle" />
+                  <Text text="View yearly planned order overview and trends" textAlign="Center" wrapping="true" class="tileSubText" />
+                  <Text text="Click to access" textAlign="Center" class="tileAction" />
+                </VBox>
+              </TileContent>
+            </GenericTile>
+          </HBox>
+          
+          <!-- Second Row -->
+          <HBox class="tileRow" alignItems="Center" justifyContent="Center">
+            <!-- Month-wise Production Orders Tile -->
+            <GenericTile press="onProductionOrdersMonthPress" class="dashboardTile productionOrdersMonthTile" size="M" frameType="TwoByOne">
+              <TileContent>
+                <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
+                  <core:Icon src="sap-icon://workflow-tasks" size="3rem" color="#388e3c" class="tileIcon" />
+                  <Text text="Month-wise Production Orders" textAlign="Center" class="tileTitle" />
+                  <Text text="Monitor monthly production order status and progress" textAlign="Center" wrapping="true" class="tileSubText" />
+                  <Text text="Click to access" textAlign="Center" class="tileAction" />
+                </VBox>
+              </TileContent>
+            </GenericTile>
 
-          <!-- Year-wise Planned Orders Tile -->
-          <GenericTile press="onPlannedOrdersYearPress" class="tileBox" size="M" frameType="TwoByOne">
-            <TileContent>
-              <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
-                <core:Icon src="sap-icon://calendar-2" size="2.5rem" color="blue" class="tileIcon" />
-                <Text text="Year-wise Planned Orders" textAlign="Center" class="tileTitle" />
-                <Text text="View yearly activities" textAlign="Center" wrapping="true" class="tileSubText" />
-              </VBox>
-            </TileContent>
-          </GenericTile>
-
-        </HBox>
-        
-        <HBox class="tileRow" alignItems="Center" justifyContent="Center">
-
-          <!-- Month-wise Production Orders Tile -->
-          <GenericTile press="onProductionOrdersMonthPress" class="tileBox" size="M" frameType="TwoByOne">
-            <TileContent>
-              <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
-                <core:Icon src="sap-icon://workflow-tasks" size="2.5rem" color="green" class="tileIcon" />
-                <Text text="Month-wise Production Orders" textAlign="Center" class="tileTitle" />
-                <Text text="Check monthly status" textAlign="Center" wrapping="true" class="tileSubText" />
-              </VBox>
-            </TileContent>
-          </GenericTile>
-
-          <!-- Year-wise Production Orders Tile -->
-          <GenericTile press="onProductionOrdersYearPress" class="tileBox" size="M" frameType="TwoByOne">
-            <TileContent>
-              <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
-                <core:Icon src="sap-icon://workflow-tasks" size="2.5rem" color="green" class="tileIcon" />
-                <Text text="Year-wise Production Orders" textAlign="Center" class="tileTitle" />
-                <Text text="Check yearly status" textAlign="Center" wrapping="true" class="tileSubText" />
-              </VBox>
-            </TileContent>
-          </GenericTile>
-
-        </HBox>
+            <!-- Year-wise Production Orders Tile -->
+            <GenericTile press="onProductionOrdersYearPress" class="dashboardTile productionOrdersYearTile" size="M" frameType="TwoByOne">
+              <TileContent>
+                <VBox alignItems="Center" justifyContent="Center" class="tileInnerContent">
+                  <core:Icon src="sap-icon://workflow-tasks" size="3rem" color="#388e3c" class="tileIcon" />
+                  <Text text="Year-wise Production Orders" textAlign="Center" class="tileTitle" />
+                  <Text text="Track yearly production order performance and analytics" textAlign="Center" wrapping="true" class="tileSubText" />
+                  <Text text="Click to access" textAlign="Center" class="tileAction" />
+                </VBox>
+              </TileContent>
+            </GenericTile>
+          </HBox>
+        </VBox>
       </VBox>
 
     </VBox>
