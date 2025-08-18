@@ -1,0 +1,340 @@
+/* ========================
+   Warm & Neutral Theme - Global Styles
+   Apply this to all pages for consistency
+=========================== */
+
+/* ========================
+   Color Variables
+=========================== */
+:root {
+  /* Primary Colors */
+  --primary-brand: #E9730C;
+  --primary-hover: #C25E0A;
+  
+  /* Accent Colors */
+  --accent: #F5A300;
+  --positive: #8C6239;
+  --critical: #F5A300;
+  --negative: #BB0000;
+  
+  /* Background Colors */
+  --background: #F5F6F7;
+  --surface: #FFFFFF;
+  --raised-surface: #FAFAFB;
+  --border-divider: #D9D9D9;
+  
+  /* Text Colors */
+  --text-primary: #32363A;
+  --text-secondary: #6A6D70;
+}
+
+/* ========================
+   Global Page Styling
+=========================== */
+.pageBackground {
+  background: linear-gradient(135deg, #F5F6F7 0%, #D9D9D9 100%);
+  min-height: 100vh;
+}
+
+/* ========================
+   Header Styling
+=========================== */
+.pageHeader {
+  background: linear-gradient(135deg, #E9730C 0%, #C25E0A 100%);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(50, 54, 58, 0.15);
+  position: relative;
+  overflow: visible;
+}
+
+.headerTitle {
+  color: #FFFFFF !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  letter-spacing: 0.5px !important;
+}
+
+.headerSubtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.headerIcon {
+  color: #FFFFFF !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* ========================
+   Button Styling
+=========================== */
+.primaryButton {
+  background: linear-gradient(135deg, #E9730C 0%, #C25E0A 100%) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(233, 115, 12, 0.3) !important;
+}
+
+.primaryButton:hover {
+  background: linear-gradient(135deg, #C25E0A 0%, #E9730C 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(233, 115, 12, 0.4) !important;
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid #D9D9D9 !important;
+  border-radius: 8px !important;
+  color: #E9730C !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.secondaryButton:hover {
+  background: #FFFFFF !important;
+  border-color: #E9730C !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ========================
+   Card and Tile Styling
+=========================== */
+.contentCard {
+  background: #FFFFFF !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(50, 54, 58, 0.1) !important;
+  border: 1px solid #D9D9D9 !important;
+  overflow: hidden !important;
+}
+
+.contentCard:hover {
+  box-shadow: 0 20px 40px rgba(50, 54, 58, 0.15) !important;
+  transform: translateY(-4px) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* ========================
+   Table Styling
+=========================== */
+.dataTable {
+  background: #FFFFFF !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(50, 54, 58, 0.08) !important;
+  border: 1px solid #D9D9D9 !important;
+}
+
+.tableHeader {
+  background: linear-gradient(135deg, #F5F6F7 0%, #E8E9EA 100%) !important;
+  border-bottom: 1px solid #D9D9D9 !important;
+  color: #32363A !important;
+  font-weight: 600 !important;
+}
+
+.tableRow {
+  border-bottom: 1px solid #F5F6F7 !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.tableRow:hover {
+  background-color: rgba(233, 115, 12, 0.05) !important;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #FAFAFB !important;
+}
+
+.tableRow:nth-child(even):hover {
+  background-color: rgba(233, 115, 12, 0.08) !important;
+}
+
+/* ========================
+   Input Field Styling
+=========================== */
+.formInput {
+  border: 2px solid #D9D9D9 !important;
+  border-radius: 8px !important;
+  background: #F5F6F7 !important;
+  color: #32363A !important;
+  transition: all 0.3s ease !important;
+}
+
+.formInput:focus {
+  border-color: #E9730C !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 0 0 3px rgba(233, 115, 12, 0.1) !important;
+  outline: none !important;
+}
+
+.formInput:hover {
+  border-color: #E9730C !important;
+  background: #FFFFFF !important;
+}
+
+.formLabel {
+  color: #32363A !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* ========================
+   Search and Filter Styling
+=========================== */
+.searchField {
+  border: 2px solid #D9D9D9 !important;
+  border-radius: 8px !important;
+  background: #F5F6F7 !important;
+  color: #32363A !important;
+}
+
+.searchField:focus {
+  border-color: #E9730C !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 0 0 3px rgba(233, 115, 12, 0.1) !important;
+}
+
+.filterButton {
+  background: rgba(233, 115, 12, 0.1) !important;
+  border: 1px solid #E9730C !important;
+  border-radius: 6px !important;
+  color: #E9730C !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.filterButton:hover {
+  background: rgba(233, 115, 12, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ========================
+   Status and Badge Styling
+=========================== */
+.statusSuccess {
+  color: #8C6239 !important;
+  background: rgba(140, 98, 57, 0.1) !important;
+  border: 1px solid rgba(140, 98, 57, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 0.25rem 0.75rem !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+}
+
+.statusWarning {
+  color: #F5A300 !important;
+  background: rgba(245, 163, 0, 0.1) !important;
+  border: 1px solid rgba(245, 163, 0, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 0.25rem 0.75rem !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+}
+
+.statusError {
+  color: #BB0000 !important;
+  background: rgba(187, 0, 0, 0.1) !important;
+  border: 1px solid rgba(187, 0, 0, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 0.25rem 0.75rem !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+}
+
+/* ========================
+   Navigation and Breadcrumb Styling
+=========================== */
+.navBreadcrumb {
+  background: #FFFFFF !important;
+  border-radius: 8px !important;
+  padding: 0.75rem 1rem !important;
+  box-shadow: 0 2px 8px rgba(50, 54, 58, 0.08) !important;
+  border: 1px solid #D9D9D9 !important;
+}
+
+.breadcrumbItem {
+  color: #6A6D70 !important;
+  transition: color 0.2s ease !important;
+}
+
+.breadcrumbItem:hover {
+  color: #E9730C !important;
+}
+
+.breadcrumbSeparator {
+  color: #D9D9D9 !important;
+  margin: 0 0.5rem !important;
+}
+
+/* ========================
+   Footer Styling
+=========================== */
+.pageFooter {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding: 1.5rem 0 !important;
+}
+
+.footerText {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.9rem !important;
+  font-weight: 300 !important;
+  text-align: center !important;
+}
+
+/* ========================
+   Loading and Busy States
+=========================== */
+.loadingSpinner {
+  color: #E9730C !important;
+}
+
+.busyOverlay {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* ========================
+   Focus States for Accessibility
+=========================== */
+.focusable:focus-visible {
+  outline: 2px solid #E9730C !important;
+  outline-offset: 2px !important;
+}
+
+/* ========================
+   Responsive Utilities
+=========================== */
+@media (max-width: 768px) {
+  .pageHeader {
+    padding: 1rem 1.5rem !important;
+  }
+  
+  .headerTitle {
+    font-size: 1.6rem !important;
+  }
+  
+  .contentCard {
+    margin: 0 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageHeader {
+    padding: 1rem !important;
+  }
+  
+  .headerTitle {
+    font-size: 1.4rem !important;
+  }
+  
+  .contentCard {
+    margin: 0 0.5rem !important;
+  }
+}

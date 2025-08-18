@@ -1,10 +1,10 @@
 /* ========================
-   Enhanced Login Page Styling
+   Enhanced Login Page Styling - Warm & Neutral Theme
 =========================== */
 
 /* Main page styling */
 .loginPage {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #F5F6F7 0%, #D9D9D9 100%);
   height: 100vh;
 }
 
@@ -13,7 +13,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(233, 115, 12, 0.95) 0%, rgba(194, 94, 10, 0.95) 100%);
 }
 
 /* ========================
@@ -63,11 +63,11 @@
 }
 
 .loginCard {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(20px);
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(50, 54, 58, 0.15);
+  border: 1px solid #D9D9D9;
   overflow: hidden;
   min-width: 400px;
   max-width: 450px;
@@ -76,26 +76,27 @@
 
 .loginCardHeader {
   padding: 2rem 2rem 1rem 2rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5F6F7 100%);
+  border-bottom: 1px solid #D9D9D9;
   text-align: center;
 }
 
 .loginIcon {
   margin-bottom: 1rem;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  color: #E9730C;
 }
 
 .loginWelcomeText {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: #32363A;
   margin-bottom: 0.5rem;
 }
 
 .loginSubText {
   font-size: 0.95rem;
-  color: #6c757d;
+  color: #6A6D70;
   font-weight: 400;
 }
 
@@ -104,7 +105,7 @@
 =========================== */
 .loginForm {
   padding: 2rem;
-  background: #ffffff;
+  background: #FFFFFF;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,7 +121,7 @@
 }
 
 .inputLabel {
-  color: #495057;
+  color: #32363A;
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
@@ -138,77 +139,141 @@
 }
 
 .loginInput .sapMInputBaseInner {
-  border: 2px solid #e9ecef;
+  border: 2px solid #D9D9D9;
   border-radius: 8px;
   padding: 0.75rem 1rem;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: #f8f9fa;
+  background: #F5F6F7;
   width: 100%;
   text-align: center;
   box-sizing: border-box;
+  color: #32363A;
 }
 
 .loginInput .sapMInputBaseInner:focus {
-  border-color: #667eea;
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #E9730C;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(233, 115, 12, 0.1);
   outline: none;
 }
 
 .loginInput .sapMInputBaseInner:hover {
-  border-color: #adb5bd;
-  background: #ffffff;
+  border-color: #E9730C;
+  background: #FFFFFF;
+}
+
+.loginInput .sapMInputBaseInner::placeholder {
+  color: #6A6D70;
 }
 
 /* ========================
-   Login Button
+   Login Button - Fixed Alignment and Color
 =========================== */
 .loginButton {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
-  border-radius: 8px;
-  padding: 1rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #ffffff;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-  margin-top: 1rem;
+  background: linear-gradient(135deg, #E9730C 0%, #C25E0A 100%) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 1rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(233, 115, 12, 0.3) !important;
+  margin-top: 1rem !important;
   width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
   display: block !important;
+  height: auto !important;
+  line-height: 1.2 !important;
 }
 
 .loginButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #C25E0A 0%, #E9730C 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(233, 115, 12, 0.4) !important;
 }
 
 .loginButton:active {
-  transform: translateY(0);
+  transform: translateY(0) !important;
 }
 
 .loginButton:disabled {
-  background: #6c757d;
-  transform: none;
-  box-shadow: none;
-  cursor: not-allowed;
+  background: #6A6D70 !important;
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+}
+
+/* Force SAPUI5 button styling to match our design */
+.loginForm .sapMButton {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.loginForm .sapMButton .sapMBtnInner {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  background: linear-gradient(135deg, #E9730C 0%, #C25E0A 100%) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 1rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(233, 115, 12, 0.3) !important;
+  height: auto !important;
+  line-height: 1.2 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.loginForm .sapMButton .sapMBtnInner:hover {
+  background: linear-gradient(135deg, #C25E0A 0%, #E9730C 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(233, 115, 12, 0.4) !important;
+}
+
+.loginForm .sapMButton .sapMBtnInner:active {
+  transform: translateY(0) !important;
+}
+
+.loginForm .sapMButton .sapMBtnInner:disabled {
+  background: #6A6D70 !important;
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+}
+
+.loginForm .sapMButton .sapMBtnContent {
+  color: #FFFFFF !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  width: 100% !important;
 }
 
 /* ========================
    Status Text
 =========================== */
 .statusText {
-  color: #dc3545;
+  color: #BB0000;
   font-size: 0.9rem;
   font-weight: 500;
   text-align: center;
   margin-top: 1rem;
   padding: 0.5rem;
   border-radius: 4px;
-  background: rgba(220, 53, 69, 0.1);
+  background: rgba(187, 0, 0, 0.1);
   width: 100%;
 }
 
@@ -289,6 +354,11 @@
     padding: 0.8rem;
     font-size: 1rem;
   }
+  
+  .loginForm .sapMButton .sapMBtnInner {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
 }
 
 /* ========================
@@ -328,12 +398,17 @@
    Focus States for Accessibility
 =========================== */
 .loginInput .sapMInputBaseInner:focus-visible {
-  outline: 2px solid #667eea;
+  outline: 2px solid #E9730C;
   outline-offset: 2px;
 }
 
 .loginButton:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+.loginForm .sapMButton .sapMBtnInner:focus-visible {
+  outline: 2px solid #FFFFFF;
   outline-offset: 2px;
 }
 
@@ -358,18 +433,16 @@
 
 .loginForm .sapMInput .sapMInputBaseInner::placeholder {
   text-align: center;
-  color: #6c757d;
+  color: #6A6D70;
 }
 
-/* Force button to match input field width */
-.loginForm .sapMButton {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box !important;
+/* Remove any default SAPUI5 button margins/padding that might interfere */
+.loginForm .sapMButton .sapMBtn {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.loginForm .sapMButton .sapMBtnInner {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box !important;
+.loginForm .sapMButton .sapMBtnBase {
+  margin: 0 !important;
+  padding: 0 !important;
 }
