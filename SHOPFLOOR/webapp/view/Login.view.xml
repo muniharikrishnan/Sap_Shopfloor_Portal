@@ -2,35 +2,16 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
 
-    <Page showHeader="false" class="loginPage">
-
-        <!-- Background image layer -->
-        <VBox class="backgroundWrapper">
-
-            <!-- Foreground content over the image -->
-            <VBox class="fullPageLayout">
-
-                <!-- Top Blue Header -->
-                <HBox class="topBar" alignItems="Center" justifyContent="Center">
-                    <Text text="Welcome to ShopFloor Portal" class="headerText" />
-                </HBox>
-
-                <!-- Login Tile Centered -->
-                <VBox class="centerArea" alignItems="Center" justifyContent="Center">
-                    <VBox class="loginBox" alignItems="Center">
-                        <Input id="usernameInput" placeholder="Username" width="300px" />
-                        <Input id="passwordInput" placeholder="Password" type="Password" width="300px" class="sapUiSmallMarginTop" />
-                        <Button text="Login" press="onLoginPress" class="greenLoginButton sapUiSmallMarginTop" />
-                    </VBox>
-                </VBox>
-
-                <!-- Bottom Green Footer -->
-                <HBox class="bottomBar" alignItems="Center" justifyContent="Center">
-                    <Text text="We believe in the power of energy to help transform lives, enhance communities, and advance human progress." class="footerText" />
-                </HBox>
-
+    <Page showHeader="false">
+        <content>
+            <VBox alignItems="Center" justifyContent="Center" height="100%">
+                <Text text="Login" />
+                <Input id="usernameInput" placeholder="Username" />
+                <Input id="passwordInput" placeholder="Password" type="Password" />
+                <Button id="loginButton" text="Login" press="onLoginPress" />
+                <Text id="statusText" text="" visible="false" />
             </VBox>
-        </VBox>
-
+        </content>
     </Page>
+
 </mvc:View>

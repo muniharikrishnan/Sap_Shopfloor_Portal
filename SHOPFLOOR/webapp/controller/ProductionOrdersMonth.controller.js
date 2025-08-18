@@ -288,31 +288,41 @@ sap.ui.define([
             }
 
             var aFilteredData = oCurrentData.filter(function (oItem) {
-                var bInclude = true;
+                // Parse the SAP date format for start and end dates
+                var oItemStartDate = null;
+                var oItemEndDate = null;
                 
-                if (oFromDate && oItem.Gstrp) {
-                    var sMatch = oItem.Gstrp.match(/\/Date\((\d+)\)\//);
-                    if (sMatch && sMatch[1]) {
-                        var oItemDate = new Date(parseInt(sMatch[1]));
-                        // Include records where start date is >= from date (inclusive)
-                        if (oItemDate < oFromDate) {
-                            bInclude = false;
-                        }
+                if (oItem.Gstrp) {
+                    var sStartMatch = oItem.Gstrp.match(/\/Date\((\d+)\)\//);
+                    if (sStartMatch && sStartMatch[1]) {
+                        oItemStartDate = new Date(parseInt(sStartMatch[1]));
                     }
                 }
                 
-                if (oToDate && oItem.Gltrp) {
-                    var sMatch = oItem.Gltrp.match(/\/Date\((\d+)\)\//);
-                    if (sMatch && sMatch[1]) {
-                        var oItemDate = new Date(parseInt(sMatch[1]));
-                        // Include records where end date is <= to date (inclusive)
-                        if (oItemDate > oToDate) {
-                            bInclude = false;
-                        }
+                if (oItem.Gltrp) {
+                    var sEndMatch = oItem.Gltrp.match(/\/Date\((\d+)\)\//);
+                    if (sEndMatch && sEndMatch[1]) {
+                        oItemEndDate = new Date(parseInt(sEndMatch[1]));
                     }
                 }
                 
-                return bInclude;
+                // If we don't have valid dates, exclude the record
+                if (!oItemStartDate || !oItemEndDate) {
+                    return false;
+                }
+                
+                // Include records that overlap with the selected date range in any way:
+                // 1. Record starts within the range (start date >= from date AND start date <= to date)
+                // 2. Record ends within the range (end date >= from date AND end date <= to date)  
+                // 3. Record spans across the entire range (start date <= from date AND end date >= to date)
+                // 4. Record is completely within the range (start date >= from date AND end date <= to date)
+                
+                var bStartsInRange = oItemStartDate >= oFromDate && oItemStartDate <= oToDate;
+                var bEndsInRange = oItemEndDate >= oFromDate && oItemEndDate <= oToDate;
+                var bSpansRange = oItemStartDate <= oFromDate && oItemEndDate >= oToDate;
+                var bCompletelyWithin = oItemStartDate >= oFromDate && oItemEndDate <= oToDate;
+                
+                return bStartsInRange || bEndsInRange || bSpansRange || bCompletelyWithin;
             });
 
             oViewModel.setProperty("/data", aFilteredData);
