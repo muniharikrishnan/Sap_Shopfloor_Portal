@@ -137,6 +137,11 @@ sap.ui.define([
                                 oProcessedItem.ErdatFormatted = that.formatSapDate(oProcessedItem.Erdat);
                             }
                             
+                            // Format Ftrmi (Planned Finish Date)
+                            if (oProcessedItem.Ftrmi) {
+                                oProcessedItem.FtrmiFormatted = that.formatSapDate(oProcessedItem.Ftrmi);
+                            }
+                            
                             return oProcessedItem;
                         });
                         

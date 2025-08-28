@@ -142,3 +142,41 @@
         width: 100% !important;
     }
 }
+
+/* Horizontal scroll containers for Production Orders */
+.prodMonthScroller, .prodYearScroller {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar subtly while keeping scroll */
+.hide-scrollbar::-webkit-scrollbar {
+    height: 8px;
+}
+.hide-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+.hide-scrollbar {
+    scrollbar-width: thin;
+}
+
+/* De-congestion: paddings and nowrap */
+.productionOrdersTable .sapUiTableColCell,
+.productionOrdersTable .sapUiTableCell {
+    padding: 0.5rem 0.75rem;
+}
+
+.productionOrdersTable .sapUiTableColHdrCnt {
+    padding: 0.25rem 0.5rem;
+}
+
+.productionOrdersTable .sapUiTableCol {
+    white-space: nowrap;
+}
+
+.productionOrdersTable .sapUiTableCell .sapMText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

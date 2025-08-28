@@ -76,6 +76,13 @@
                 </ui:template>
               </ui:Column>
               
+              <ui:Column sortProperty="Pwwrk" filterProperty="Pwwrk" width="10rem">
+                <Label text="Prod./Issuing Plant" />
+                <ui:template>
+                  <Text text="{viewModel>Pwwrk}" />
+                </ui:template>
+              </ui:Column>
+              
               <ui:Column sortProperty="Gsmng" filterProperty="Gsmng" width="9rem">
                 <Label text="Total Quantity" />
                 <ui:template>
@@ -129,6 +136,13 @@
                 <Label text="Order Type" />
                 <ui:template>
                   <Text text="{viewModel>Paart}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Beskz" filterProperty="Beskz" width="11rem">
+                <Label text="Procurement Type" />
+                <ui:template>
+                  <Text text="{viewModel>Beskz}" />
                 </ui:template>
               </ui:Column>
               

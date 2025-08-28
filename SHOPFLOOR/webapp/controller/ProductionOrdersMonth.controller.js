@@ -165,6 +165,11 @@ sap.ui.define([
                                 oProcessedItem.MonthyrFormatted = that.formatMonthYear(oProcessedItem.Monthyr);
                             }
                             
+                            // Format Ftrmi (Planned Finish Date)
+                            if (oProcessedItem.Ftrmi) {
+                                oProcessedItem.FtrmiFormatted = that.formatSapDate(oProcessedItem.Ftrmi);
+                            }
+                            
                             return oProcessedItem;
                         });
                         

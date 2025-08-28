@@ -42,86 +42,120 @@
 
     <!-- Data Table -->
     <content>
-             <ui:Table
-         id="productionOrdersTable"
-         rows="{viewModel>/data}"
-         selectionMode="None"
-         visibleRowCount="20"
-         enableBusyIndicator="true"
-         class="sapUiSizeCompact">
-        
-        <ui:columns>
-          <ui:Column sortProperty="Aufnr" filterProperty="Aufnr">
-            <Label text="Order Number" />
-            <ui:template>
-                             <Text text="{viewModel>Aufnr}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Aurt" filterProperty="Aurt">
-             <Label text="Order Type" />
-             <ui:template>
-               <Text text="{viewModel>Aurt}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Werks" filterProperty="Werks">
-             <Label text="Plant" />
-             <ui:template>
-               <Text text="{viewModel>Werks}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Ktext" filterProperty="Ktext">
-             <Label text="Description" />
-             <ui:template>
-               <Text text="{viewModel>Ktext}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Ernam" filterProperty="Ernam">
-             <Label text="Created By" />
-             <ui:template>
-               <Text text="{viewModel>Ernam}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Erdat" filterProperty="Erdat">
-             <Label text="Created Date" />
-             <ui:template>
-               <Text text="{viewModel>ErdatFormatted}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Gstrp" filterProperty="Gstrp">
-             <Label text="Start Date" />
-             <ui:template>
-               <Text text="{viewModel>GstrpFormatted}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Gltrp" filterProperty="Gltrp">
-             <Label text="End Date" />
-             <ui:template>
-               <Text text="{viewModel>GltrpFormatted}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Gamng" filterProperty="Gamng">
-             <Label text="Quantity" />
-             <ui:template>
-               <Text text="{viewModel>Gamng}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Zyear" filterProperty="Zyear">
-             <Label text="Year" />
-             <ui:template>
-               <Text text="{viewModel>Zyear}" />
-             </ui:template>
-           </ui:Column>
-        </ui:columns>
-      </ui:Table>
+      <ScrollContainer width="100%" height="auto" horizontal="true" vertical="false" class="prodYearScroller hide-scrollbar">
+        <content>
+          <ui:Table
+            id="productionOrdersTable"
+            rows="{viewModel>/data}"
+            selectionMode="None"
+            visibleRowCount="20"
+            enableBusyIndicator="true"
+            rowHeight="44"
+            columnHeaderHeight="40"
+            class="sapUiSizeCompact productionOrdersTable">
+            
+            <ui:columns>
+              <ui:Column sortProperty="Aufnr" filterProperty="Aufnr" width="10rem">
+                <Label text="Order Number" />
+                <ui:template>
+                  <Text text="{viewModel>Aufnr}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Aurt" filterProperty="Aurt" width="8rem">
+                <Label text="Order Type" />
+                <ui:template>
+                  <Text text="{viewModel>Aurt}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Werks" filterProperty="Werks" width="7rem">
+                <Label text="Plant" />
+                <ui:template>
+                  <Text text="{viewModel>Werks}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Ktext" filterProperty="Ktext" width="20rem">
+                <Label text="Description" />
+                <ui:template>
+                  <Text text="{viewModel>Ktext}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Ernam" filterProperty="Ernam" width="9rem">
+                <Label text="Created By" />
+                <ui:template>
+                  <Text text="{viewModel>Ernam}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Erdat" filterProperty="Erdat" width="10rem">
+                <Label text="Created Date" />
+                <ui:template>
+                  <Text text="{viewModel>ErdatFormatted}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Gstrp" filterProperty="Gstrp" width="10rem">
+                <Label text="Start Date" />
+                <ui:template>
+                  <Text text="{viewModel>GstrpFormatted}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Gltrp" filterProperty="Gltrp" width="10rem">
+                <Label text="End Date" />
+                <ui:template>
+                  <Text text="{viewModel>GltrpFormatted}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Ftrmi" filterProperty="Ftrmi" width="11rem">
+                <Label text="Planned Finish Date" />
+                <ui:template>
+                  <Text text="{viewModel>FtrmiFormatted}" />
+                </ui:template>
+              </ui:Column>
+              
+              <!-- <ui:Column sortProperty="Ftrmp" filterProperty="Ftrmp" width="9rem">
+                <Label text="Planned Time" />
+                <ui:template>
+                  <Text text="{viewModel>Ftrmp}" />
+                </ui:template>
+              </ui:Column> -->
+              
+              <ui:Column sortProperty="Gamng" filterProperty="Gamng" width="8rem">
+                <Label text="Quantity" />
+                <ui:template>
+                  <Text text="{viewModel>Gamng}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Gmein" filterProperty="Gmein" width="6rem">
+                <Label text="Unit" />
+                <ui:template>
+                  <Text text="{viewModel>Gmein}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Objnr" filterProperty="Objnr" width="14rem">
+                <Label text="Object Number" />
+                <ui:template>
+                  <Text text="{viewModel>Objnr}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Zyear" filterProperty="Zyear" width="7rem">
+                <Label text="Year" />
+                <ui:template>
+                  <Text text="{viewModel>Zyear}" />
+                </ui:template>
+              </ui:Column>
+            </ui:columns>
+          </ui:Table>
+        </content>
+      </ScrollContainer>
     </content>
     
     <!-- Footer with Refresh Button -->
