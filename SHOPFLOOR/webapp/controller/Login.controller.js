@@ -17,7 +17,185 @@ sap.ui.define([
       }
     },
 
+    _initDynamicIcon: function() {
+      // Array of industrial icons for dynamic rotation
+      this._iconArray = [
+        "sap-icon://factory",
+        "sap-icon://machine",
+        "sap-icon://gears",
+        "sap-icon://work-history",
+        "sap-icon://production",
+        "sap-icon://technical-object",
+        "sap-icon://equipment",
+        "sap-icon://workflow-tasks",
+        "sap-icon://tools-opportunity",
+        "sap-icon://process",
+        "sap-icon://monitor-payments",
+        "sap-icon://activity-2"
+      ];
+      
+      this._currentIconIndex = 0;
+      this._iconChangeInterval = null;
+      this._iconClickCount = 0;
+      
+      // Get the icon element
+      var oIcon = this.byId("logoIcon");
+      if (!oIcon) {
+        console.warn("Logo icon element not found, dynamic icon functionality disabled");
+        return;
+      }
+      
+      // Start dynamic icon rotation
+      this._startIconRotation();
+      
+      // Add click handler for manual icon change
+      oIcon.attachPress(this._onIconClick.bind(this));
+      
+      // Add hover effects
+      oIcon.attachMouseOver(this._onIconHover.bind(this));
+      oIcon.attachMouseOut(this._onIconOut.bind(this));
+      
+      console.log("Dynamic icon functionality initialized successfully");
+    },
+
+    _startIconRotation: function() {
+      // Clear any existing interval first
+      if (this._iconChangeInterval) {
+        clearInterval(this._iconChangeInterval);
+        this._iconChangeInterval = null;
+      }
+      
+      // Change icon every 4-6 seconds randomly
+      var iRandomDelay = 4000 + Math.random() * 2000;
+      this._iconChangeInterval = setInterval(function() {
+        if (this._changeIcon) {
+          this._changeIcon();
+          // Randomize next delay
+          iRandomDelay = 4000 + Math.random() * 2000;
+          clearInterval(this._iconChangeInterval);
+          this._iconChangeInterval = setInterval(this._changeIcon.bind(this), iRandomDelay);
+        }
+      }.bind(this), iRandomDelay);
+      
+      console.log("Icon rotation started with delay:", iRandomDelay, "ms");
+    },
+
+    _changeIcon: function() {
+      // Randomly select next icon instead of sequential
+      var iNewIndex;
+      do {
+        iNewIndex = Math.floor(Math.random() * this._iconArray.length);
+      } while (iNewIndex === this._currentIconIndex && this._iconArray.length > 1);
+      
+      this._currentIconIndex = iNewIndex;
+      var sNewIcon = this._iconArray[this._currentIconIndex];
+      
+      // Time-based icon selection (optional override)
+      if (this._shouldUseTimeBasedIcon()) {
+        sNewIcon = this._getTimeBasedIcon();
+      }
+      
+      var oIcon = this.byId("logoIcon");
+      if (!oIcon) {
+        console.warn("Logo icon element not found during icon change");
+        return;
+      }
+      
+      // Add transition effect
+      oIcon.addStyleClass("iconChanging");
+      
+      // Change icon with slight delay for smooth transition
+      setTimeout(function() {
+        if (oIcon && oIcon.getDomRef()) {
+          oIcon.setSrc(sNewIcon);
+          oIcon.removeStyleClass("iconChanging");
+        }
+      }, 150);
+    },
+
+    _shouldUseTimeBasedIcon: function() {
+      // 20% chance to use time-based icon
+      return Math.random() < 0.2;
+    },
+
+    _getTimeBasedIcon: function() {
+      var oDate = new Date();
+      var iHour = oDate.getHours();
+      
+      // Different icons for different times of day
+      if (iHour >= 6 && iHour < 12) {
+        // Morning: production and workflow icons
+        return this._iconArray[Math.floor(Math.random() * 3)]; // factory, machine, gears
+      } else if (iHour >= 12 && iHour < 18) {
+        // Afternoon: technical and equipment icons
+        return this._iconArray[Math.floor(Math.random() * 3) + 3]; // work-history, production, technical-object
+      } else if (iHour >= 18 && iHour < 22) {
+        // Evening: monitoring and process icons
+        return this._iconArray[Math.floor(Math.random() * 3) + 6]; // equipment, workflow-tasks, tools-opportunity
+      } else {
+        // Night: activity and monitoring icons
+        return this._iconArray[Math.floor(Math.random() * 3) + 9]; // process, monitor-payments, activity-2
+      }
+    },
+
+    _onIconClick: function() {
+      // Manual icon change on click
+      this._iconClickCount++;
+      this._changeIcon();
+      
+      // Set data attribute for CSS effects
+      var oIcon = this.byId("logoIcon");
+      if (oIcon && oIcon.getDomRef()) {
+        oIcon.setCustomData(new sap.ui.core.CustomData({
+          key: "click-count",
+          value: this._iconClickCount.toString()
+        }));
+      }
+      
+      // Reset the automatic rotation timer
+      if (this._iconChangeInterval) {
+        clearInterval(this._iconChangeInterval);
+        this._startIconRotation();
+      }
+      
+      // Show different feedback based on click count
+      var sFeedback = "Icon changed!";
+      if (this._iconClickCount >= 5) {
+        sFeedback = "Icon master! 🎯";
+      } else if (this._iconClickCount >= 3) {
+        sFeedback = "Icon explorer! ⭐";
+      }
+      
+      MessageToast.show(sFeedback);
+    },
+
+    _onIconHover: function() {
+      // Add hover effect class
+      var oIcon = this.byId("logoIcon");
+      if (oIcon && oIcon.getDomRef()) {
+        oIcon.addStyleClass("iconHovered");
+      }
+    },
+
+    _onIconOut: function() {
+      // Remove hover effect class
+      var oIcon = this.byId("logoIcon");
+      if (oIcon && oIcon.getDomRef()) {
+        oIcon.removeStyleClass("iconHovered");
+      }
+    },
+
+    onExit: function() {
+      // Clean up interval when controller is destroyed
+      if (this._iconChangeInterval) {
+        clearInterval(this._iconChangeInterval);
+      }
+    },
+
     onAfterRendering: function () {
+      // Initialize dynamic icon functionality after rendering
+      this._initDynamicIcon();
+      
       // Add key press handler for Enter key on password input
       var oPasswordInput = this.byId("passwordInput");
       if (oPasswordInput) {
@@ -29,6 +207,38 @@ sap.ui.define([
       // Handle Enter key press on password input
       if (oEvent.keyCode === 13) { // Enter key
         this.onLoginPress();
+      }
+    },
+
+    onPasswordToggle: function() {
+      var oPasswordInput = this.byId("passwordInput");
+      var oPasswordToggle = this.byId("passwordToggle");
+      
+      if (oPasswordInput && oPasswordToggle) {
+        var bIsPassword = oPasswordInput.getType() === "Password";
+        
+        if (bIsPassword) {
+          // Show password
+          oPasswordInput.setType("Text");
+          oPasswordToggle.setIcon("sap-icon://hide");
+          oPasswordToggle.setTooltip("Hide password");
+          oPasswordToggle.setCustomData(new sap.ui.core.CustomData({
+            key: "password-visible",
+            value: "true"
+          }));
+        } else {
+          // Hide password
+          oPasswordInput.setType("Password");
+          oPasswordToggle.setIcon("sap-icon://show");
+          oPasswordToggle.setTooltip("Show password");
+          oPasswordToggle.setCustomData(new sap.ui.core.CustomData({
+            key: "password-visible",
+            value: "false"
+          }));
+        }
+        
+        // Focus back to password input for better UX
+        oPasswordInput.focus();
       }
     },
 

@@ -28,11 +28,201 @@
 
 .logoSection {
   text-align: center;
+  position: relative;
 }
 
 .logoIcon {
   margin-bottom: 1rem;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  /* Dynamic icon animations */
+  animation: iconFloat 3s ease-in-out infinite, iconGlow 4s ease-in-out infinite alternate, iconSpin 0.8s ease-out;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.logoIcon:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) brightness(1.2);
+  animation-play-state: paused;
+}
+
+/* Dynamic icon floating animation */
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Dynamic icon glow animation */
+@keyframes iconGlow {
+  0% {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) brightness(1);
+  }
+  100% {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) brightness(1.1);
+  }
+}
+
+/* Icon rotation on load */
+.logoIcon {
+  animation: iconFloat 3s ease-in-out infinite, iconGlow 4s ease-in-out infinite alternate, iconSpin 0.8s ease-out;
+}
+
+@keyframes iconSpin {
+  0% {
+    transform: rotate(-180deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Dynamic icon pulse effect */
+.logoIcon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: iconPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Icon changing transition effect */
+.logoIcon.iconChanging {
+  animation: iconChange 0.3s ease-in-out;
+}
+
+@keyframes iconChange {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.8) rotate(180deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+/* Additional dynamic effects for icon */
+.logoIcon:active {
+  transform: scale(0.95);
+  animation-play-state: paused;
+}
+
+/* Icon color cycling effect */
+.logoIcon {
+  animation: iconFloat 3s ease-in-out infinite, iconGlow 4s ease-in-out infinite alternate, iconSpin 0.8s ease-out, iconColorCycle 8s ease-in-out infinite;
+}
+
+@keyframes iconColorCycle {
+  0%, 100% {
+    color: #ffffff;
+  }
+  25% {
+    color: #FFD700;
+  }
+  50% {
+    color: #FFA500;
+  }
+  75% {
+    color: #FF6347;
+  }
+}
+
+/* Enhanced hover effects */
+.logoIcon.iconHovered {
+  transform: scale(1.15) rotate(8deg);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5)) brightness(1.3);
+  animation-play-state: paused;
+}
+
+.logoIcon.iconHovered::after {
+  animation: iconPulse 1s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+}
+
+/* Special effect for multiple clicks */
+.logoIcon[data-click-count="5"] {
+  animation: iconFloat 3s ease-in-out infinite, iconGlow 4s ease-in-out infinite alternate, iconSpin 0.8s ease-out, iconColorCycle 8s ease-in-out infinite, iconCelebration 2s ease-in-out infinite;
+}
+
+@keyframes iconCelebration {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.2) rotate(15deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-15deg);
+  }
+  75% {
+    transform: scale(1.3) rotate(10deg);
+  }
+}
+
+/* Golden hour effect for high click counts */
+.logoIcon[data-click-count="10"] {
+  animation: iconFloat 3s ease-in-out infinite, iconGlow 4s ease-in-out infinite alternate, iconSpin 0.8s ease-out, iconColorCycle 8s ease-in-out infinite, iconGoldenHour 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.6)) brightness(1.2);
+}
+
+@keyframes iconGoldenHour {
+  0%, 100% {
+    color: #FFD700;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    color: #FFA500;
+    transform: scale(1.1) rotate(5deg);
+  }
+  50% {
+    color: #FF6347;
+    transform: scale(1.2) rotate(-5deg);
+  }
+  75% {
+    color: #FFD700;
+    transform: scale(1.1) rotate(3deg);
+  }
+}
+
+/* Special effect for icon changing state */
+.logoIcon.iconChanging {
+  animation: iconChange 0.3s ease-in-out;
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.8));
+}
+
+/* Enhanced icon pulse for active states */
+.logoIcon:active::after {
+  animation: iconPulse 0.5s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 50%);
 }
 
 .appTitle {
@@ -117,7 +307,7 @@
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 .inputLabel {
@@ -132,39 +322,157 @@
   text-align: left;
 }
 
-.loginInput {
+/* Input wrapper for icon + input combination */
+.inputWrapper {
   width: 100%;
+  position: relative;
+  background: #F5F6F7;
+  border: 2px solid #D9D9D9;
+  border-radius: 8px;
+  padding: 0.25rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.inputWrapper:hover {
+  border-color: #E9730C;
+  background: #FFFFFF;
+}
+
+.inputWrapper:focus-within {
+  border-color: #E9730C;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(233, 115, 12, 0.1);
+}
+
+/* Input icon styling */
+.inputIcon {
+  margin: 0 0.75rem;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  color: #6A6D70;
+  width: 1.2rem;
+  text-align: center;
+}
+
+.inputWrapper:hover .inputIcon,
+.inputWrapper:focus-within .inputIcon {
+  opacity: 1;
+  color: #E9730C;
+}
+
+/* Font Awesome specific styling */
+.fas.fa-user,
+.fas.fa-lock {
+  font-size: 1.2rem !important;
+  color: #6A6D70 !important;
+  transition: all 0.3s ease !important;
+}
+
+.inputWrapper:hover .fas.fa-user,
+.inputWrapper:hover .fas.fa-lock,
+.inputWrapper:focus-within .fas.fa-user,
+.inputWrapper:focus-within .fas.fa-lock {
+  color: #E9730C !important;
+  opacity: 1 !important;
+}
+
+/* Input field styling */
+.loginInput {
+  flex: 1;
   display: flex;
   justify-content: center;
 }
 
 .loginInput .sapMInputBaseInner {
-  border: 2px solid #D9D9D9;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: #F5F6F7;
-  width: 100%;
-  text-align: center;
-  box-sizing: border-box;
-  color: #32363A;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 1rem !important;
+  transition: all 0.3s ease !important;
+  background: transparent !important;
+  width: 100% !important;
+  text-align: left !important;
+  box-sizing: border-box !important;
+  color: #32363A !important;
+  box-shadow: none !important;
 }
 
 .loginInput .sapMInputBaseInner:focus {
-  border-color: #E9730C;
-  background: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(233, 115, 12, 0.1);
-  outline: none;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .loginInput .sapMInputBaseInner:hover {
-  border-color: #E9730C;
-  background: #FFFFFF;
+  background: transparent !important;
 }
 
 .loginInput .sapMInputBaseInner::placeholder {
   color: #6A6D70;
+  text-align: left;
+}
+
+/* Password toggle button */
+.passwordToggle {
+  margin: 0 0.5rem !important;
+  padding: 0.5rem !important;
+  min-width: 2.5rem !important;
+  height: 2.5rem !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  border: none !important;
+  color: #6A6D70 !important;
+  transition: all 0.3s ease !important;
+}
+
+.passwordToggle:hover {
+  background: rgba(233, 115, 12, 0.1) !important;
+  color: #E9730C !important;
+  transform: scale(1.05) !important;
+}
+
+.passwordToggle:active {
+  transform: scale(0.95) !important;
+}
+
+.passwordToggle .sapMBtnInner {
+  background: transparent !important;
+  border: none !important;
+  color: inherit !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-width: 2.5rem !important;
+  height: 2.5rem !important;
+  border-radius: 6px !important;
+}
+
+.passwordToggle .sapMBtnInner:hover {
+  background: rgba(233, 115, 12, 0.1) !important;
+  color: inherit !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.passwordToggle .sapMBtnInner:active {
+  background: rgba(233, 115, 12, 0.2) !important;
+  transform: none !important;
+}
+
+.passwordToggle .sapMBtnContent {
+  color: inherit !important;
+  font-size: 1rem !important;
+  background: transparent !important;
+}
+
+/* Password toggle icon states */
+.passwordToggle[data-password-visible="true"] .sapMBtnInner {
+  color: #E9730C !important;
+}
+
+.passwordToggle[data-password-visible="true"]:hover {
+  background: rgba(233, 115, 12, 0.15) !important;
 }
 
 /* ========================
@@ -449,6 +757,27 @@
   .inputGroup {
     margin-bottom: 1.25rem;
   }
+  
+  .inputWrapper {
+    padding: 0.2rem;
+  }
+  
+  .inputIcon {
+    margin: 0 0.4rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Font Awesome mobile responsive sizing */
+  .fas.fa-user,
+  .fas.fa-lock {
+    font-size: 0.9rem !important;
+  }
+  
+  .passwordToggle {
+    min-width: 2.2rem !important;
+    height: 2.2rem !important;
+    margin: 0 0.3rem !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -472,9 +801,29 @@
     margin-bottom: 1rem;
   }
   
+  .inputWrapper {
+    padding: 0.15rem;
+  }
+  
+  .inputIcon {
+    margin: 0 0.4rem;
+    size: 0.9rem;
+  }
+  
   .loginInput .sapMInputBaseInner {
-    padding: 0.6rem 0.8rem;
-    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem !important;
+    font-size: 0.95rem !important;
+  }
+  
+  .passwordToggle {
+    min-width: 2rem !important;
+    height: 2rem !important;
+    margin: 0 0.25rem !important;
+  }
+  
+  .passwordToggle .sapMBtnInner {
+    min-width: 2rem !important;
+    height: 2rem !important;
   }
   
   .loginButton {
@@ -521,6 +870,67 @@
   }
 }
 
+/* Input field animations */
+.inputWrapper {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.inputWrapper:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.inputWrapper:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input icon animations */
+.inputIcon {
+  animation: iconSlideIn 0.5s ease-out;
+}
+
+.fas.fa-user,
+.fas.fa-lock {
+  animation: iconSlideIn 0.5s ease-out;
+}
+
+@keyframes iconSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 0.7;
+    transform: translateX(0);
+  }
+}
+
+/* Password toggle button animation */
+.passwordToggle {
+  animation: buttonFadeIn 0.5s ease-out 0.3s both;
+}
+
+@keyframes buttonFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* ========================
    Focus States for Accessibility
 =========================== */
@@ -537,6 +947,34 @@
 .loginForm .sapMButton .sapMBtnInner:focus-visible {
   outline: 2px solid #FFFFFF;
   outline-offset: 2px;
+}
+
+/* Enhanced focus states for new elements */
+.inputWrapper:focus-within {
+  outline: 2px solid #E9730C;
+  outline-offset: 2px;
+}
+
+.passwordToggle:focus-visible {
+  outline: 2px solid #E9730C;
+  outline-offset: 2px;
+}
+
+.passwordToggle:focus-visible .sapMBtnInner {
+  outline: 2px solid #E9730C;
+  outline-offset: 2px;
+}
+
+/* Input icon focus enhancement */
+.inputWrapper:focus-within .inputIcon {
+  color: #E9730C !important;
+  opacity: 1;
+}
+
+/* Password toggle button focus enhancement */
+.passwordToggle:focus-visible {
+  background: rgba(233, 115, 12, 0.1) !important;
+  color: #E9730C !important;
 }
 
 /* ========================

@@ -2,16 +2,20 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
-    xmlns:f="sap.f">
+    xmlns:f="sap.f"
+    xmlns:html="http://www.w3.org/1999/xhtml">
 
     <Page showHeader="false" class="loginPage">
+        <!-- Font Awesome CSS -->
+        <html:link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        
         <!-- Background with overlay -->
         <content>
             <VBox class="loginBackground">
                 <!-- Top header with logo -->
                 <HBox class="loginHeader" alignItems="Center" justifyContent="Center">
                     <VBox alignItems="Center" class="logoSection">
-                        <core:Icon src="sap-icon://factory" size="3rem" color="#ffffff" class="logoIcon" />
+                        <core:Icon id="logoIcon" src="sap-icon://factory" size="3rem" color="#ffffff" class="logoIcon" />
                         <Text text="SAP Shopfloor Portal" class="appTitle" />
                         <Text text="Production Management System" class="appSubtitle" />
                     </VBox>
@@ -35,22 +39,34 @@
                                 <!-- Username Input -->
                                 <VBox class="inputGroup" alignItems="Start">
                                     <Label text="Username" class="inputLabel" />
-                                    <Input 
-                                        id="usernameInput" 
-                                        placeholder="Enter your username" 
-                                        class="loginInput"
-                                        showClearButton="true" />
+                                    <HBox class="inputWrapper" alignItems="Center">
+                                        <html:i class="fas fa-user inputIcon"></html:i>
+                                        <Input 
+                                            id="usernameInput" 
+                                            placeholder="Enter your username" 
+                                            class="loginInput"
+                                            showClearButton="true" />
+                                    </HBox>
                                 </VBox>
 
                                 <!-- Password Input -->
                                 <VBox class="inputGroup" alignItems="Start">
                                     <Label text="Password" class="inputLabel" />
-                                    <Input 
-                                        id="passwordInput" 
-                                        placeholder="Enter your password" 
-                                        type="Password" 
-                                        class="loginInput"
-                                        showClearButton="true" />
+                                    <HBox class="inputWrapper" alignItems="Center">
+                                        <html:i class="fas fa-lock inputIcon"></html:i>
+                                        <Input 
+                                            id="passwordInput" 
+                                            placeholder="Enter your password" 
+                                            type="Password" 
+                                            class="loginInput"
+                                            showClearButton="true" />
+                                        <Button 
+                                            id="passwordToggle" 
+                                            icon="sap-icon://show" 
+                                            type="Transparent" 
+                                            class="passwordToggle"
+                                            press="onPasswordToggle" />
+                                    </HBox>
                                 </VBox>
 
                                 <!-- Login Button -->
