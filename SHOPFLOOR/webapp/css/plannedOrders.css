@@ -129,6 +129,52 @@
     border-top: 1px solid #D9D9D9;
 }
 
+/* Planned Orders Month - Horizontal scroll and spacing */
+.poMonthScroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar visually while keeping scroll functionality */
+.hide-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+.hide-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+}
+
+/* Reduce congestion: increase paddings and line-height */
+.plannedOrdersTable .sapUiTableColCell, 
+.plannedOrdersTable .sapUiTableCell {
+  padding: 0.5rem 0.75rem;
+}
+
+.plannedOrdersTable .sapUiTableColHdrCnt {
+  padding: 0.25rem 0.5rem;
+}
+
+.plannedOrdersTable .sapUiTableCol {
+  white-space: nowrap;
+}
+
+/* Ensure text truncates nicely if needed */
+.plannedOrdersTable .sapUiTableCell .sapMText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Planned Orders Year - Horizontal scroll */
+.poYearScroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .sapMToolbar {

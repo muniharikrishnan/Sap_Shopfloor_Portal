@@ -18,14 +18,41 @@ sap.ui.define([
       var oLoginModel = sap.ui.getCore().getModel("loginInfo");
       if (oLoginModel) {
         this.getView().setModel(oLoginModel);
-              } else {
-          // Create login model from localStorage
-          var oNewLoginModel = new sap.ui.model.json.JSONModel({
-            userId: sPlant,
-            plant: sPlant
-          });
+      } else {
+        // Create login model from localStorage
+        var oNewLoginModel = new sap.ui.model.json.JSONModel({
+          userId: sPlant,
+          plant: sPlant
+        });
         sap.ui.getCore().setModel(oNewLoginModel, "loginInfo");
         this.getView().setModel(oNewLoginModel);
+      }
+      
+      // Initialize header icon functionality
+      this._initHeaderIcon();
+    },
+
+    _initHeaderIcon: function() {
+      // Add click handler for header icon (no mouse over/out events)
+      var oHeaderIcon = this.byId("headerIcon");
+      if (oHeaderIcon) {
+        oHeaderIcon.attachPress(this._onHeaderIconClick.bind(this));
+      }
+    },
+
+    _onHeaderIconClick: function() {
+      // Add celebration effect using CSS classes
+      var oHeaderIcon = this.byId("headerIcon");
+      if (oHeaderIcon) {
+        oHeaderIcon.addStyleClass("headerIconClicked");
+        
+        // Remove the effect after animation
+        setTimeout(function() {
+          oHeaderIcon.removeStyleClass("headerIconClicked");
+        }, 600);
+        
+        // Show welcome message
+        MessageToast.show("Welcome to SAP Shopfloor Portal! 🏭");
       }
     },
 

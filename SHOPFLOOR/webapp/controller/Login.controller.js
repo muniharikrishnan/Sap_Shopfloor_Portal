@@ -51,9 +51,8 @@ sap.ui.define([
       // Add click handler for manual icon change
       oIcon.attachPress(this._onIconClick.bind(this));
       
-      // Add hover effects
-      oIcon.attachMouseOver(this._onIconHover.bind(this));
-      oIcon.attachMouseOut(this._onIconOut.bind(this));
+      // Note: core:Icon doesn't support attachMouseOver/attachMouseOut
+      // Use CSS hover effects instead for dynamic interactions
       
       console.log("Dynamic icon functionality initialized successfully");
     },
@@ -169,21 +168,7 @@ sap.ui.define([
       MessageToast.show(sFeedback);
     },
 
-    _onIconHover: function() {
-      // Add hover effect class
-      var oIcon = this.byId("logoIcon");
-      if (oIcon && oIcon.getDomRef()) {
-        oIcon.addStyleClass("iconHovered");
-      }
-    },
 
-    _onIconOut: function() {
-      // Remove hover effect class
-      var oIcon = this.byId("logoIcon");
-      if (oIcon && oIcon.getDomRef()) {
-        oIcon.removeStyleClass("iconHovered");
-      }
-    },
 
     onExit: function() {
       // Clean up interval when controller is destroyed

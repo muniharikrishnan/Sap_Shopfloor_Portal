@@ -42,100 +42,120 @@
 
     <!-- Data Table -->
     <content>
-             <ui:Table
-         id="plannedOrdersTable"
-         rows="{viewModel>/data}"
-         selectionMode="None"
-         visibleRowCount="20"
-         enableBusyIndicator="true"
-         class="sapUiSizeCompact">
-        
-        <ui:columns>
-          <ui:Column sortProperty="Plnum" filterProperty="Plnum">
-            <Label text="Plan Number" />
-                         <ui:template>
-               <Text text="{viewModel>Plnum}" />
-             </ui:template>
-          </ui:Column>
-          
-          <ui:Column sortProperty="Matnr" filterProperty="Matnr">
-            <Label text="Material" />
-            <ui:template>
-                             <Text text="{viewModel>Matnr}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Plwrk" filterProperty="Plwrk">
-             <Label text="Plant" />
-             <ui:template>
-               <Text text="{viewModel>Plwrk}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Gsmng" filterProperty="Gsmng">
-             <Label text="Total Quantity" />
-             <ui:template>
-               <Text text="{viewModel>Gsmng}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Avmng" filterProperty="Avmng">
-             <Label text="Available Quantity" />
-             <ui:template>
-               <Text text="{viewModel>Avmng}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Psttr" filterProperty="Psttr">
-             <Label text="Start Date" />
-             <ui:template>
-               <Text text="{viewModel>PsttrFormatted}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Pedtr" filterProperty="Pedtr">
-             <Label text="End Date" />
-             <ui:template>
-               <Text text="{viewModel>PedtrFormatted}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Pertr" filterProperty="Pertr">
-             <Label text="Transaction Date" />
-             <ui:template>
-               <Text text="{viewModel>PertrFormatted}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Monthyr" filterProperty="Monthyr">
-             <Label text="Month-Year" />
-             <ui:template>
-               <Text text="{viewModel>MonthyrFormatted}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Dispo" filterProperty="Dispo">
-             <Label text="Dispatcher" />
-             <ui:template>
-               <Text text="{viewModel>Dispo}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Paart" filterProperty="Paart">
-             <Label text="Order Type" />
-             <ui:template>
-               <Text text="{viewModel>Paart}" />
-             </ui:template>
-           </ui:Column>
-           
-           <ui:Column sortProperty="Meins" filterProperty="Meins">
-             <Label text="Unit" />
-             <ui:template>
-               <Text text="{viewModel>Meins}" />
-             </ui:template>
-           </ui:Column>
-        </ui:columns>
-      </ui:Table>
+      <ScrollContainer width="100%" height="auto" horizontal="true" vertical="false" class="poMonthScroller hide-scrollbar">
+        <content>
+          <ui:Table
+            id="plannedOrdersTable"
+            rows="{viewModel>/data}"
+            selectionMode="None"
+            visibleRowCount="20"
+            enableBusyIndicator="true"
+            rowHeight="44"
+            columnHeaderHeight="40"
+            class="sapUiSizeCompact plannedOrdersTable">
+            
+            <ui:columns>
+              <ui:Column sortProperty="Plnum" filterProperty="Plnum" width="9rem">
+                <Label text="Plan Number" />
+                <ui:template>
+                  <Text text="{viewModel>Plnum}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Matnr" filterProperty="Matnr" width="8rem">
+                <Label text="Material" />
+                <ui:template>
+                  <Text text="{viewModel>Matnr}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Plwrk" filterProperty="Plwrk" width="7rem">
+                <Label text="Plant" />
+                <ui:template>
+                  <Text text="{viewModel>Plwrk}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Pwwrk" filterProperty="Pwwrk" width="10rem">
+                <Label text="Prod./Issuing Plant" />
+                <ui:template>
+                  <Text text="{viewModel>Pwwrk}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Gsmng" filterProperty="Gsmng" width="9rem">
+                <Label text="Total Quantity" />
+                <ui:template>
+                  <Text text="{viewModel>Gsmng}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Avmng" filterProperty="Avmng" width="10rem">
+                <Label text="Available Quantity" />
+                <ui:template>
+                  <Text text="{viewModel>Avmng}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Psttr" filterProperty="Psttr" width="10rem">
+                <Label text="Start Date" />
+                <ui:template>
+                  <Text text="{viewModel>PsttrFormatted}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Pedtr" filterProperty="Pedtr" width="10rem">
+                <Label text="End Date" />
+                <ui:template>
+                  <Text text="{viewModel>PedtrFormatted}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Pertr" filterProperty="Pertr" width="11rem">
+                <Label text="Transaction Date" />
+                <ui:template>
+                  <Text text="{viewModel>PertrFormatted}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Monthyr" filterProperty="Monthyr" width="9rem">
+                <Label text="Month-Year" />
+                <ui:template>
+                  <Text text="{viewModel>MonthyrFormatted}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Dispo" filterProperty="Dispo" width="8rem">
+                <Label text="Dispatcher" />
+                <ui:template>
+                  <Text text="{viewModel>Dispo}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Paart" filterProperty="Paart" width="8rem">
+                <Label text="Order Type" />
+                <ui:template>
+                  <Text text="{viewModel>Paart}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Beskz" filterProperty="Beskz" width="11rem">
+                <Label text="Procurement Type" />
+                <ui:template>
+                  <Text text="{viewModel>Beskz}" />
+                </ui:template>
+              </ui:Column>
+              
+              <ui:Column sortProperty="Meins" filterProperty="Meins" width="6rem">
+                <Label text="Unit" />
+                <ui:template>
+                  <Text text="{viewModel>Meins}" />
+                </ui:template>
+              </ui:Column>
+            </ui:columns>
+          </ui:Table>
+        </content>
+      </ScrollContainer>
     </content>
     
     <!-- Footer with Refresh Button -->

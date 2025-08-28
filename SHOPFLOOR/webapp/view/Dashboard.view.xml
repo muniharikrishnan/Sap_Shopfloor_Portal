@@ -14,7 +14,7 @@
       <HBox class="dashboardHeader" alignItems="Center" justifyContent="SpaceBetween">
         <VBox class="headerLeft">
           <HBox alignItems="Center" class="titleSection">
-            <core:Icon src="sap-icon://factory" size="2.5rem" color="#ffffff" class="headerIcon" />
+            <core:Icon id="headerIcon" src="sap-icon://factory" size="2.5rem" color="#ffffff" class="headerIcon" />
             <VBox class="titleTexts">
               <Text text="SAP Shopfloor Portal" class="dashboardTitle" />
               <Text text="Production Management Dashboard" class="dashboardSubtitle" />
@@ -23,6 +23,7 @@
           <Text text="Welcome, Plant: {/plant}" class="userInfo" />
         </VBox>
         <Button 
+          id="logoutButton"
           text="Logout" 
           press="onLogoutPress" 
           class="logoutButton" 
